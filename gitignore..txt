@@ -1,0 +1,35 @@
+# Ignore Visual Studio specific files
+.vscode/
+*.suo
+*.user
+*.cache
+*.log
+
+# Ignore build and binary files
+bin/
+obj/
+*.dll
+*.exe
+*.pdb
+*.tmp
+*.bak
+*.swp
+
+# Ignore package and dependency folders
+node_modules/
+packages/
+
+# Ignore configuration and environment files
+*.config
+*.env
+secrets.json
+
+# Ignore compiled Python files
+*.pyc
+__pycache__/
+
+# Ignore macOS system files
+.DS_Store
+
+# Ignore Windows system files
+Thumbs.db
