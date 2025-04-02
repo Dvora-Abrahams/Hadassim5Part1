@@ -17,8 +17,14 @@ public class GroceryController : ControllerBase
     }
 
     [HttpPut("$OrderingGoods")]
-    public async Task<int> CreateOrder([FromBody]OrderBLL order,[FromQuery] Dictionary<string, int> products)
-    {  
+    public async Task<int> CreateOrder([FromBody]string company,[FromQuery] Dictionary<string, int> products)
+    {
+        int supplierId= ordersManagment.GetSupplierIdByCompany(company);
+
+        OrderBLL order = new OrderBLL()
+        {
+            SupplierId = supplierId
+        };
         return await ordersManagment.CreateOrder(products, order.Convert());
     }
 }

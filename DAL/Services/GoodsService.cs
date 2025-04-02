@@ -12,9 +12,9 @@ namespace DAL.Services
     public class GoodsService : IGoodsService
     {
         DB_Manager _context;
-        public GoodsService()
+        public GoodsService(DB_Manager dB_Manager)
         {
-            _context = new DB_Manager();
+            _context = dB_Manager;
         }
 
         public async Task AddGood(Good good)
@@ -27,12 +27,12 @@ namespace DAL.Services
         {
             return await _context.Goods.ToListAsync();
         }
-        public async Task<Good> GetGoodByName(String name)
+        public async Task<Good> GetGoodByName(string name)
         {
-            var good = await _context.Goods.FirstOrDefaultAsync(g => g.ProductName == name);
+            var  good =  await _context.Goods.FirstOrDefaultAsync(g => g.ProductName == name);
             if (good == null)
             {
-                throw new Exception("Good not found");
+                return null;
             }
             return good;
         }

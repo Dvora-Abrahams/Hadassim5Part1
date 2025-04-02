@@ -12,9 +12,9 @@ namespace DAL.Services
     public class SuppliersService : ISuppliersService
     {
         private readonly DB_Manager _context;
-        public SuppliersService()
+        public SuppliersService(DB_Manager dB_Manager)
         {
-            _context = new DB_Manager();
+            _context =  dB_Manager;
         }
         public async Task AddSupplier(Supplier supplier)
         {

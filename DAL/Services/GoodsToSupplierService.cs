@@ -12,9 +12,9 @@ namespace DAL.Services
     public class GoodsToSupplierService : IGoodsToSupplierService
     {
         private readonly DB_Manager _context;
-        public GoodsToSupplierService()
+        public GoodsToSupplierService(DB_Manager dB_Manager)
         {
-            _context = new DB_Manager();
+            _context = dB_Manager;
         }
 
         public void AddGoodsToSupplier(int supplierId, int goodsId)

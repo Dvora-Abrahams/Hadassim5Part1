@@ -12,9 +12,9 @@ namespace DAL.Services
     public class OrdersService : IOrdersService
     {
         DB_Manager _context;
-        public OrdersService()
+        public OrdersService(DB_Manager dB_Manager)
         {
-            _context = new DB_Manager();
+            _context =  dB_Manager;
         }
 
         public async Task AddOrder(Order order)
@@ -31,13 +31,13 @@ namespace DAL.Services
             var order = await _context.Orders.FirstOrDefaultAsync(o => o.Id == id);
             if (order == null)
             {
-                throw new Exception("Order not found");
+                return null;
             }
             return order;
         }
         public async Task<List<Order>> GetOrderBySupplierId(int SupplierId)
         {
-            List<Order> order = await _context.Orders.Where(o => o.SupplierId == SupplierId && o.Status!= "Completed").ToListAsync();
+            List<Order> order = await _context.Orders.Where(o => o.SupplierId == SupplierId && o.Status== "waiting").ToListAsync();
 
             if (order == null)
             {

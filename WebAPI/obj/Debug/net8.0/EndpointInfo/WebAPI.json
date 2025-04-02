@@ -27,17 +27,17 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/OrderBLL"
+                "type": "string"
               }
             },
             "text/json": {
               "schema": {
-                "$ref": "#/components/schemas/OrderBLL"
+                "type": "string"
               }
             },
             "application/*+json": {
               "schema": {
-                "$ref": "#/components/schemas/OrderBLL"
+                "type": "string"
               }
             }
           }
@@ -70,7 +70,7 @@
       }
     },
     "/Suppliers/creatSupplier": {
-      "put": {
+      "post": {
         "tags": [
           "Suppliers"
         ],
@@ -111,7 +111,7 @@
       }
     },
     "/Suppliers/RegisteredSupplier": {
-      "put": {
+      "post": {
         "tags": [
           "Suppliers"
         ],
@@ -139,7 +139,7 @@
       }
     },
     "/Suppliers/AddGoodsToSupplier": {
-      "put": {
+      "post": {
         "tags": [
           "Suppliers"
         ],
@@ -241,6 +241,28 @@
                 }
               }
             }
+          }
+        }
+      }
+    },
+    "/Suppliers/ConfirmationReceipOrder": {
+      "put": {
+        "tags": [
+          "Suppliers"
+        ],
+        "parameters": [
+          {
+            "name": "orderId",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
           }
         }
       }

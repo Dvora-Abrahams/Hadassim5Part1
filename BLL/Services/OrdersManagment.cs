@@ -31,30 +31,28 @@ namespace BLL.Services
             List<GoodsToOrder> goodsToOrders = new List<GoodsToOrder>();
             foreach (var item in products)
             {
-                if (goodsService.GetGoodByName(item.Key) != null)
+                Task<Good> g = goodsService.GetGoodByName(item.Key);
+                if (g == null) { return -1; }
+                if (!goods.Contains(g.GetAwaiter().GetResult()))
                 {
-
-                    var g = await goodsService.GetGoodByName(item.Key);
-                    if (!goods.Contains(g))
-                    {
-                        throw new Exception("Goods not found in supplier");
-                    }
-                    if (item.Value < g.MinimumPurcheQuantity)
-                    {
-                        throw new Exception("Quantity is less than minimum purchase quantity");
-                    }
-
-                    GoodsToOrder gto = new GoodsToOrder()
-                    {
-                        GoodsId = g.Id,
-                        OrdersId = order.Id,
-                        Quantity = item.Value
-
-                    };
-                    goodsToOrders.Add(gto);
-                    await goodsToOrdersService.AddGoodsToOrder(order.Id, g.Id, item.Value);
+                    throw new Exception("Goods not found in supplier");
                 }
-                else return -1;
+                if (item.Value < g.GetAwaiter().GetResult().MinimumPurcheQuantity)
+                {
+                    throw new Exception("Quantity is less than minimum purchase quantity");
+                }
+
+                GoodsToOrder gto = new GoodsToOrder()
+                {
+                    GoodsId = g.Id,
+                    OrdersId = order.Id,
+                    Quantity = item.Value
+
+                };
+                goodsToOrders.Add(gto);
+                await goodsToOrdersService.AddGoodsToOrder(order.Id, g.Id, item.Value);
+
+
             }
             order.GoodsToOrders = goodsToOrders;
             await ordersService.AddOrder(order);
@@ -69,10 +67,12 @@ namespace BLL.Services
         public async Task<List<OrderBLL>> GetOrderByCompanyName(string company)
         {
             var supplierId = suppliersService.GetSupplierByCompany(company);
-            List<Order>l= await ordersService.GetOrderBySupplierId(supplierId.Id);
-            return l.Select(o=> new OrderBLL() {
+            List<Order> l = await ordersService.GetOrderBySupplierId(supplierId.Id);
+            return l.Select(o => new OrderBLL()
+            {
                 SupplierId = o.SupplierId,
-                Status = o.Status }).ToList();
+                Status = o.Status
+            }).ToList();
         }
 
         //public async Task<Good> GetGoodsByName(string goodsName)
@@ -89,25 +89,27 @@ namespace BLL.Services
         {
             await ordersService.updateOrderStatus("proccess", orderId);
         }
-
+        public int GetSupplierIdByCompany(string company)
+        {
+            return suppliersService.GetSupplierByCompany(company).Id;
+        }
         public void AddGoodsToSupplier(string company, Dictionary<string, float> goods, int min)
         {
-            var supplier = suppliersService.GetSupplierByCompany(company);
+            Task<Supplier> supplier = suppliersService.GetSupplierByCompany(company);
+
             foreach (var item in goods)
             {
-                if (goodsService.GetGoodByName(item.Key) != null)
-                {
-                    var g = goodsService.GetGoodByName(item.Key);
-                    if (g == null)
-                    {
+                //Task<Good>  g = goodsService.GetGoodByName(item.Key);
+                //if (g.GetAwaiter().GetResult() == null)
+                //{
 
-                        goodsService.AddGood(new Good() { ProductName = item.Key, Price = item.Value, MinimumPurcheQuantity = min });
-                        g = goodsService.GetGoodByName(item.Key);
-                    }
+                    goodsService.AddGood(new Good() { ProductName = item.Key, Price = item.Value, MinimumPurcheQuantity = min });
+                    Task<Good>  g = goodsService.GetGoodByName(item.Key);
+                //}
 
-                    goodsToSupplierService.AddGoodsToSupplier(supplier.Id, g.Id);
-                }
+                goodsToSupplierService.AddGoodsToSupplier(supplier.GetAwaiter().GetResult().Id, g.GetAwaiter().GetResult().Id);
             }
+
         }
         public bool proxyToSuppliers(string company, string phoneNumber)
         {

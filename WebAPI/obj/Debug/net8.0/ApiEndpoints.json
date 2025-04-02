@@ -8,8 +8,8 @@
     "Order": 0,
     "Parameters": [
       {
-        "Name": "order",
-        "Type": "BLL.Models.OrderBLL",
+        "Name": "company",
+        "Type": "System.String",
         "IsRequired": true
       },
       {
@@ -34,7 +34,7 @@
     "ContainingType": "WebAPI.Controllers.SuppliersController",
     "Method": "AddGoodsToSupplier",
     "RelativePath": "Suppliers/AddGoodsToSupplier",
-    "HttpMethod": "PUT",
+    "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
     "Parameters": [
@@ -64,9 +64,31 @@
   },
   {
     "ContainingType": "WebAPI.Controllers.SuppliersController",
+    "Method": "ConfirmationReceipOrder",
+    "RelativePath": "Suppliers/ConfirmationReceipOrder",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "orderId",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Void",
+        "MediaTypes": [],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "WebAPI.Controllers.SuppliersController",
     "Method": "creatSupplier",
     "RelativePath": "Suppliers/creatSupplier",
-    "HttpMethod": "PUT",
+    "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
     "Parameters": [
@@ -96,7 +118,7 @@
   },
   {
     "ContainingType": "WebAPI.Controllers.SuppliersController",
-    "Method": "GetOrderBySupplierId",
+    "Method": "GetOrderByCompany",
     "RelativePath": "Suppliers/GetOrderByCompany",
     "HttpMethod": "GET",
     "IsController": true,
@@ -124,7 +146,7 @@
     "ContainingType": "WebAPI.Controllers.SuppliersController",
     "Method": "proxyToSuppliers",
     "RelativePath": "Suppliers/RegisteredSupplier",
-    "HttpMethod": "PUT",
+    "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
     "Parameters": [

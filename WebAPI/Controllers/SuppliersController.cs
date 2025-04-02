@@ -18,22 +18,22 @@ namespace WebAPI.Controllers
             ordersManagment = _ordersManagment;
         }
 
-        [HttpPut("creatSupplier")]
+        [HttpPost("creatSupplier")]
         public void creatSupplier([FromQuery] SuppliersBLL sup)
         {
               ordersManagment.creatSupplier(sup.Convert());
         }
 
-        [HttpPut("RegisteredSupplier")]
+        [HttpPost("RegisteredSupplier")]
         public void proxyToSuppliers([FromQuery]string company , string phone)
         {
             ordersManagment.proxyToSuppliers(company,phone);
         }
 
-        [HttpPut("AddGoodsToSupplier")]
+        [HttpPost("AddGoodsToSupplier")]
         public async Task AddGoodsToSupplier(string company , Dictionary<string, float> dict,int n )
         {
-            ordersManagment.AddGoodsToSupplier(company, dict, 1);
+            ordersManagment.AddGoodsToSupplier(company, dict, n);
         }
 
         [HttpGet("GetOrderByCompany")]
@@ -41,6 +41,13 @@ namespace WebAPI.Controllers
         {
             return await ordersManagment.GetOrderByCompanyName(company);
         }
+
+        [HttpPut("ConfirmationReceipOrder")]
+        public async Task ConfirmationReceipOrder(int orderId)
+        {
+            await ordersManagment.ConfirmationReceipOrder(orderId);
+        }
+        
 
 
     }

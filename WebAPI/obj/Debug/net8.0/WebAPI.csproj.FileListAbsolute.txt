@@ -92,3 +92,4 @@ C:\Users\User\Documents\dvora\project\GroceryProject\WebAPI\obj\Debug\net8.0\Web
 C:\Users\User\Documents\dvora\project\GroceryProject\WebAPI\obj\Debug\net8.0\WebAPI.genruntimeconfig.cache
 C:\Users\User\Documents\dvora\project\GroceryProject\WebAPI\obj\Debug\net8.0\ref\WebAPI.dll
 C:\Users\User\Documents\dvora\project\GroceryProject\WebAPI\obj\Debug\net8.0\WebAPI.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\User\Documents\dvora\project\GroceryProject\WebAPI\obj\Debug\net8.0\WebAPI.sourcelink.json
