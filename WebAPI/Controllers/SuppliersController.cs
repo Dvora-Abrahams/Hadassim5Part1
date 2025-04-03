@@ -33,7 +33,7 @@ namespace WebAPI.Controllers
         [HttpPost("AddGoodsToSupplier")]
         public async Task AddGoodsToSupplier(string company , Dictionary<string, float> dict,int n )
         {
-            ordersManagment.AddGoodsToSupplier(company, dict, n);
+             await ordersManagment.AddGoodsToSupplier(company, dict, n);
         }
 
         [HttpGet("GetOrderByCompany")]

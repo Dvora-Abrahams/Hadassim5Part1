@@ -7,6 +7,6 @@ namespace DAL.API
         Task AddSupplier(Supplier supplier);
         Task<List<Supplier>> GetAllSuppliers();
         Task<Supplier> GetSupplierByCompany(string company);
-        public bool proxyToSuppliers(string company, string phoneNumber);
+        Task< bool> proxyToSuppliers(string company, string phoneNumber);
     }
 }

@@ -12,9 +12,9 @@ namespace DAL.Services
     public class GoodsToOrdersService : IGoodsToOrdersService
     {
         private readonly DB_Manager _context;
-        public GoodsToOrdersService(DB_Manager dB_Manager)
+        public GoodsToOrdersService()
         {
-            _context = dB_Manager;
+            _context=new DB_Manager();
         }
         public async Task AddGoodsToOrder(int orderId, int goodsId , int quantity)
         {
@@ -29,7 +29,7 @@ namespace DAL.Services
 
                 };
                 _context.GoodsToOrders.Add(goodsToOrder);
-                _context.SaveChangesAsync();
+                await _context.SaveChangesAsync();
             }
         }
         public async Task<List<Good>> GetGoodsToOrdersByOrderId(int orderId)

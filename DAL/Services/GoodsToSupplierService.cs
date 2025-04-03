@@ -11,15 +11,15 @@ namespace DAL.Services
 {
     public class GoodsToSupplierService : IGoodsToSupplierService
     {
-        private readonly DB_Manager _context;
-        public GoodsToSupplierService(DB_Manager dB_Manager)
+        private  DB_Manager _context;
+        public GoodsToSupplierService()
         {
-            _context = dB_Manager;
+            _context=new DB_Manager();
         }
 
-        public void AddGoodsToSupplier(int supplierId, int goodsId)
+        public async Task AddGoodsToSupplier(int supplierId, int goodsId)
         {
-            var exists = _context.GoodsToSuppliers.AnyAsync(gs => gs.SuppliersId == supplierId && gs.GoodsId == goodsId);
+            var exists = await _context.GoodsToSuppliers.AnyAsync(gs => gs.SuppliersId == supplierId && gs.GoodsId == goodsId);
 
             var goodsToSupplier = new GoodsToSupplier
             {
@@ -29,7 +29,7 @@ namespace DAL.Services
             };
 
             _context.GoodsToSuppliers.Add(goodsToSupplier);
-            _context.SaveChangesAsync();
+            await _context.SaveChangesAsync();
         }
 
 
@@ -60,7 +60,8 @@ namespace DAL.Services
             foreach (int id in lst)
             {
                 Good good = await _context.Goods.FirstOrDefaultAsync(g => g.Id == id);
-                goods.Add(good);
+                if(good!= null)
+                    goods.Add(good);
             }
 
             return goods;

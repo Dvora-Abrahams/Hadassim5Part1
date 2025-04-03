@@ -12,9 +12,9 @@ namespace DAL.Services
     public class OrdersService : IOrdersService
     {
         DB_Manager _context;
-        public OrdersService(DB_Manager dB_Manager)
+        public OrdersService()
         {
-            _context =  dB_Manager;
+            _context = new DB_Manager();
         }
 
         public async Task AddOrder(Order order)
@@ -52,7 +52,7 @@ namespace DAL.Services
             {
                 existingOrder.Status = status;
                 _context.Orders.Update(existingOrder);
-                _context.SaveChangesAsync();
+                await _context.SaveChangesAsync();
             }
 
         }

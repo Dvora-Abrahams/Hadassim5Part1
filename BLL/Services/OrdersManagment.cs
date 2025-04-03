@@ -89,13 +89,14 @@ namespace BLL.Services
         {
             await ordersService.updateOrderStatus("proccess", orderId);
         }
-        public int GetSupplierIdByCompany(string company)
+        public async Task<int> GetSupplierIdByCompany(string company)
         {
-            return suppliersService.GetSupplierByCompany(company).Id;
+            Supplier a=await suppliersService.GetSupplierByCompany(company);
+            return a.Id; 
         }
-        public void AddGoodsToSupplier(string company, Dictionary<string, float> goods, int min)
+        public async Task AddGoodsToSupplier(string company, Dictionary<string, float> goods, int min)
         {
-            Task<Supplier> supplier = suppliersService.GetSupplierByCompany(company);
+            Supplier supplier = await  suppliersService.GetSupplierByCompany(company);
 
             foreach (var item in goods)
             {
@@ -103,22 +104,23 @@ namespace BLL.Services
                 //if (g.GetAwaiter().GetResult() == null)
                 //{
 
-                    goodsService.AddGood(new Good() { ProductName = item.Key, Price = item.Value, MinimumPurcheQuantity = min });
+                   await goodsService.AddGood(new Good() { ProductName = item.Key, Price = item.Value, MinimumPurcheQuantity = min });
                     Task<Good>  g = goodsService.GetGoodByName(item.Key);
                 //}
 
-                goodsToSupplierService.AddGoodsToSupplier(supplier.GetAwaiter().GetResult().Id, g.GetAwaiter().GetResult().Id);
+                await goodsToSupplierService.AddGoodsToSupplier(supplier.Id, g.GetAwaiter().GetResult().Id);
             }
 
         }
-        public bool proxyToSuppliers(string company, string phoneNumber)
+        public async Task<bool> proxyToSuppliers(string company, string phoneNumber)
         {
-            return suppliersService.proxyToSuppliers(company, phoneNumber);
+            bool b = await suppliersService.proxyToSuppliers(company, phoneNumber);
+            return b;
         }
 
-        public void creatSupplier(Supplier supplier)
+        public async Task creatSupplier(Supplier supplier)
         {
-            suppliersService.AddSupplier(supplier);
+            await suppliersService.AddSupplier(supplier);
         }
     }
 

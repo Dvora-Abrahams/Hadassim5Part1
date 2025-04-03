@@ -12,9 +12,9 @@ namespace DAL.Services
     public class SuppliersService : ISuppliersService
     {
         private readonly DB_Manager _context;
-        public SuppliersService(DB_Manager dB_Manager)
+        public SuppliersService()
         {
-            _context =  dB_Manager;
+            _context =  new DB_Manager();
         }
         public async Task AddSupplier(Supplier supplier)
         {
@@ -42,11 +42,16 @@ namespace DAL.Services
         }
         public async Task<Supplier> GetSupplierByCompany(string company)
         {
-            return await _context.Suppliers.FirstOrDefaultAsync(s => s.CompanyName == company);
+            var sup = await _context.Suppliers.FirstOrDefaultAsync(s => s.CompanyName == company);
+            if (sup == null)
+            {
+                return null;
+            }
+            return sup;
         }
-        public bool proxyToSuppliers(string company, string phoneNumber)
+        public async Task<bool> proxyToSuppliers(string company, string phoneNumber)
         {
-            var sup = _context.Suppliers.FirstOrDefault(s => s.CompanyName == company && s.PhoneNumber == phoneNumber);
+            var sup = await _context.Suppliers.FirstOrDefaultAsync(s => s.CompanyName == company && s.PhoneNumber == phoneNumber);
             if(sup == null)
                 return false;
             return true;

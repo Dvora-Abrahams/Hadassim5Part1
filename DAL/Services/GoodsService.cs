@@ -12,9 +12,9 @@ namespace DAL.Services
     public class GoodsService : IGoodsService
     {
         DB_Manager _context;
-        public GoodsService(DB_Manager dB_Manager)
+        public GoodsService()
         {
-            _context = dB_Manager;
+            _context = new DB_Manager();
         }
 
         public async Task AddGood(Good good)
