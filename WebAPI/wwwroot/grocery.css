@@ -1,0 +1,63 @@
+﻿body {
+    font-family: Arial, sans-serif;
+    direction: rtl;
+    padding: 2rem;
+    background-color: #f8f8f8;
+}
+
+h1 {
+    color: darkgreen;
+}
+
+section {
+    background: white;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+}
+
+input, textarea {
+    display: block;
+    margin-bottom: 0.5rem;
+    width: 100%;
+    padding: 0.5rem;
+}
+
+button {
+    background-color: darkgreen;
+    color: white;
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 5px;
+}
+.order {
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    background-color: #fefefe;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+
+    .order h3 {
+        margin-top: 0;
+    }
+
+    .order ul {
+        padding-right: 1.5rem;
+    }
+
+    .order li {
+        margin-bottom: 0.3rem;
+    }
+
+.product-line {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 0.5rem;
+}
+
+    .product-line input {
+        flex: 1;
+    }

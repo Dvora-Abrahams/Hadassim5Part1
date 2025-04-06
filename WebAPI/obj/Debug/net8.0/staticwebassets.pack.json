@@ -1,0 +1,69 @@
+{
+  "Files": [
+    {
+      "Id": "C:\\Users\\User\\Documents\\dvora\\project\\GroceryProject\\WebAPI\\wwwroot\\grocery.css",
+      "PackagePath": "staticwebassets\\grocery.css"
+    },
+    {
+      "Id": "C:\\Users\\User\\Documents\\dvora\\project\\GroceryProject\\WebAPI\\wwwroot\\grocery.html",
+      "PackagePath": "staticwebassets\\grocery.html"
+    },
+    {
+      "Id": "C:\\Users\\User\\Documents\\dvora\\project\\GroceryProject\\WebAPI\\wwwroot\\grocery.js",
+      "PackagePath": "staticwebassets\\grocery.js"
+    },
+    {
+      "Id": "C:\\Users\\User\\Documents\\dvora\\project\\GroceryProject\\WebAPI\\wwwroot\\index.css",
+      "PackagePath": "staticwebassets\\index.css"
+    },
+    {
+      "Id": "C:\\Users\\User\\Documents\\dvora\\project\\GroceryProject\\WebAPI\\wwwroot\\index.html",
+      "PackagePath": "staticwebassets\\index.html"
+    },
+    {
+      "Id": "C:\\Users\\User\\Documents\\dvora\\project\\GroceryProject\\WebAPI\\wwwroot\\supplier.css",
+      "PackagePath": "staticwebassets\\supplier.css"
+    },
+    {
+      "Id": "C:\\Users\\User\\Documents\\dvora\\project\\GroceryProject\\WebAPI\\wwwroot\\supplier.html",
+      "PackagePath": "staticwebassets\\supplier.html"
+    },
+    {
+      "Id": "C:\\Users\\User\\Documents\\dvora\\project\\GroceryProject\\WebAPI\\wwwroot\\supplier.js",
+      "PackagePath": "staticwebassets\\supplier.js"
+    },
+    {
+      "Id": "C:\\Users\\User\\Documents\\dvora\\project\\GroceryProject\\WebAPI\\wwwroot\\supplierLogin.css",
+      "PackagePath": "staticwebassets\\supplierLogin.css"
+    },
+    {
+      "Id": "C:\\Users\\User\\Documents\\dvora\\project\\GroceryProject\\WebAPI\\wwwroot\\supplierLogin.html",
+      "PackagePath": "staticwebassets\\supplierLogin.html"
+    },
+    {
+      "Id": "C:\\Users\\User\\Documents\\dvora\\project\\GroceryProject\\WebAPI\\wwwroot\\supplierLogin.js",
+      "PackagePath": "staticwebassets\\supplierLogin.js"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.WebAPI.Microsoft.AspNetCore.StaticWebAssetEndpoints.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssetEndpoints.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.WebAPI.Microsoft.AspNetCore.StaticWebAssets.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.build.WebAPI.props",
+      "PackagePath": "build\\WebAPI.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.buildMultiTargeting.WebAPI.props",
+      "PackagePath": "buildMultiTargeting\\WebAPI.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.buildTransitive.WebAPI.props",
+      "PackagePath": "buildTransitive\\WebAPI.props"
+    }
+  ],
+  "ElementsToRemove": []
+}

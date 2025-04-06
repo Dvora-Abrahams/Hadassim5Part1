@@ -6,5 +6,7 @@ namespace DAL.API
     {
         Task AddGoodsToOrder(int orderId, int goodsId , int quantity);
         Task<List<Good>> GetGoodsToOrdersByOrderId(int orderId);
+        Task<List<GoodsToOrder>> GetGoodsToOrdersDerailsByOrderId(int orderId);
+
     }
 }

@@ -8,6 +8,7 @@ using BLL.Models;
 using DAL.API;
 using DAL.Models;
 using DAL.Services;
+using Microsoft.EntityFrameworkCore;
 namespace BLL.Services
 {
     public class OrdersManagment : IOrdersManagment
@@ -27,17 +28,21 @@ namespace BLL.Services
         }
         public async Task<int> CreateOrder(Dictionary<string, int> products, Order order)
         {
+
             List<Good> goods = await goodsToSupplierService.GetGoodsToSupplierBySupplierId(order.SupplierId);
             List<GoodsToOrder> goodsToOrders = new List<GoodsToOrder>();
+            
+            await ordersService.AddOrder(order);
+
             foreach (var item in products)
             {
-                Task<Good> g = goodsService.GetGoodByName(item.Key);
+                Good g =await goodsService.GetGoodByName(item.Key);
                 if (g == null) { return -1; }
-                if (!goods.Contains(g.GetAwaiter().GetResult()))
+                if (!goods.Any(x => x.ProductName == g.ProductName))
                 {
                     throw new Exception("Goods not found in supplier");
                 }
-                if (item.Value < g.GetAwaiter().GetResult().MinimumPurcheQuantity)
+                if (item.Value < g.MinimumPurcheQuantity)
                 {
                     throw new Exception("Quantity is less than minimum purchase quantity");
                 }
@@ -55,44 +60,61 @@ namespace BLL.Services
 
             }
             order.GoodsToOrders = goodsToOrders;
-            await ordersService.AddOrder(order);
+            //await ordersService.UpdateOrder(order);
+            //await order.SaveChangesAsync();
+            //await ordersService.AddOrder(order);
             return order.Id;
         }
 
-        //public async Task<List<Order>> GetAllOrders()
-        //{
-        //    return await ordersService.GetAllOrders();
-        //}
+        public async Task<List<Order>> GetAllOrders()
+        {
+            List<Order> o=await ordersService.GetAllOrders();
+            foreach (var item in o)
+            {
+                List<Good> goodsToOrders = goodsToOrdersService.GetGoodsToOrdersByOrderId(item.Id).GetAwaiter().GetResult();
+                item.goods = goodsToOrders;
+                //item.GoodsToOrders=goodsToOrdersService.GetGoodsToOrdersDerailsByOrderId(item.Id).GetAwaiter().GetResult();
+            }
 
-        public async Task<List<OrderBLL>> GetOrderByCompanyName(string company)
+            return o;
+        }
+
+        public async Task<List<Order>> GetOrderByCompanyName(string company)
         {
             var supplierId = suppliersService.GetSupplierByCompany(company);
-            List<Order> l = await ordersService.GetOrderBySupplierId(supplierId.Id);
-            return l.Select(o => new OrderBLL()
+            List<Order> l = await ordersService.GetOrderBySupplierId(supplierId.GetAwaiter().GetResult().Id);
+            //return l.Select(o => new OrderBLL()
+            //{
+            //    SupplierId = o.SupplierId,
+            //    Status = o.Status
+            //}).ToList();
+            foreach (var item in l)
             {
-                SupplierId = o.SupplierId,
-                Status = o.Status
-            }).ToList();
+                List<Good> goodsToOrders = goodsToOrdersService.GetGoodsToOrdersByOrderId(item.Id).GetAwaiter().GetResult();
+                item.goods = goodsToOrders;
+                //item.GoodsToOrders=goodsToOrdersService.GetGoodsToOrdersDerailsByOrderId(item.Id).GetAwaiter().GetResult();
+            }
+            return l;
         }
 
         //public async Task<Good> GetGoodsByName(string goodsName)
         //{
         //    return await goodsService.GetGoodByName(goodsName);
         //}
-        public async Task OrdeCompletionConfirmation(int orderId)
+        public async Task<bool> OrdeCompletionConfirmation(int orderId)
         {
             //var order = await ordersService.GetOrderById(orderId);
-            await ordersService.updateOrderStatus("Completed", orderId);
+            return await ordersService.updateOrderStatus("completed", orderId);
         }
 
-        public async Task ConfirmationReceipOrder(int orderId)
+        public async Task<bool> ConfirmationReceipOrder(int orderId)
         {
-            await ordersService.updateOrderStatus("proccess", orderId);
+            return await ordersService.updateOrderStatus("proccess", orderId);
         }
-        public async Task<int> GetSupplierIdByCompany(string company)
+        public async Task<Supplier> GetSupplierIdByCompany(string company)
         {
             Supplier a=await suppliersService.GetSupplierByCompany(company);
-            return a.Id; 
+            return a; 
         }
         public async Task AddGoodsToSupplier(string company, Dictionary<string, float> goods, int min)
         {

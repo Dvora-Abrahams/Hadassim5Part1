@@ -1,0 +1,37 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>דף ספק</title>
+    <link rel="stylesheet" href="supplier.css">
+</head>
+<body>
+    <h1>ניהול ספקים</h1>
+
+    <section>
+        <h2>הוסף מוצרים לספק</h2>
+        <div id="goodsContainer"></div>
+        <button onclick="addProduct()">הוסף מוצר</button>
+        <button onclick="submitProducts()">שלח מוצרים</button>
+    </section>
+
+
+    <section>
+        <h2>הזמנות שהתקבלו</h2>
+        <button onclick="getOrders()">הצג הזמנות</button>
+        <div id="ordersList"></div>
+    </section>
+
+    <section>
+        <h2>אישור קבלת הזמנה</h2>
+        <input type="number" id="orderIdInput" placeholder="הכנס מזהה הזמנה">
+        <button onclick="confirmReceipt()">אשר קבלת הזמנה</button>
+    </section>
+
+
+    <div id="loading" class="loading" style="display: none;">LOADING...</div>
+
+    <script src="supplier.js"></script>
+</body>
+</html>

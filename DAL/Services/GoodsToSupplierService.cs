@@ -59,7 +59,7 @@ namespace DAL.Services
 
             foreach (int id in lst)
             {
-                Good good = await _context.Goods.FirstOrDefaultAsync(g => g.Id == id);
+                var good = _context.Goods.FirstOrDefaultAsync(g => g.Id == id).GetAwaiter().GetResult();
                 if(good!= null)
                     goods.Add(good);
             }

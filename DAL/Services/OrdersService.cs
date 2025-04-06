@@ -37,25 +37,49 @@ namespace DAL.Services
         }
         public async Task<List<Order>> GetOrderBySupplierId(int SupplierId)
         {
-            List<Order> order = await _context.Orders.Where(o => o.SupplierId == SupplierId && o.Status== "waiting").ToListAsync();
+            List<Order> order = await _context.Orders.Where(o => o.SupplierId == SupplierId && o.Status != "completed").ToListAsync();
 
             if (order == null)
             {
                 throw new Exception("Order not found");
             }
+
             return order;
         }
-        public async Task updateOrderStatus(String status, int id)
+        public async Task<bool> updateOrderStatus(string status, int id)
         {
+
             var existingOrder = await _context.Orders.FirstOrDefaultAsync(o => o.Id == id);
+
             if (existingOrder != null)
             {
-                existingOrder.Status = status;
-                _context.Orders.Update(existingOrder);
-                await _context.SaveChangesAsync();
+                if (existingOrder.Status.Equals("proccess") && status.Equals("completed") || existingOrder.Status.Equals("waiting") && status.Equals("proccess"))
+                {
+                    existingOrder.Status = status;
+                    _context.Orders.Update(existingOrder);
+                    await _context.SaveChangesAsync();
+                    return true;
+                }
+              
             }
-
+            return false;
         }
+        public async Task UpdateOrder(Order order)
+        {
+            var existingOrder = await _context.Orders
+                .Include(o => o.GoodsToOrders)
+                .FirstOrDefaultAsync(o => o.Id == order.Id);
+
+            if (existingOrder == null)
+                throw new Exception("Order not found");
+
+            existingOrder.GoodsToOrders = order.GoodsToOrders;
+
+            _context.Orders.Update(existingOrder);
+
+            await _context.SaveChangesAsync();
+        }
+
 
     }
 }

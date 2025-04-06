@@ -1,0 +1,11 @@
+wwwroot\grocery.css
+wwwroot\grocery.html
+wwwroot\grocery.js
+wwwroot\index.css
+wwwroot\index.html
+wwwroot\supplier.css
+wwwroot\supplier.html
+wwwroot\supplier.js
+wwwroot\supplierLogin.css
+wwwroot\supplierLogin.html
+wwwroot\supplierLogin.js

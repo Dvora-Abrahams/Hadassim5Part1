@@ -36,5 +36,10 @@ namespace DAL.Services
         {
             return await _context.GoodsToOrders.Where(gs => gs.OrdersId == orderId).Select(gs => gs.Goods).ToListAsync();
         }
+        public async Task<List<GoodsToOrder>> GetGoodsToOrdersDerailsByOrderId(int orderId)
+        {
+            return await _context.GoodsToOrders.Where(gs => gs.OrdersId == orderId).ToListAsync();
+        }
+
     }
 }

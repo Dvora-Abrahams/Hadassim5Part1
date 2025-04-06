@@ -53,7 +53,13 @@ public partial class DB_Manager : DbContext
                 .HasForeignKey(d => d.OrdersId)
                 .OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("FK_GoodsToOrders_ToTable1");
+
+            entity.Property(e => e.Quantity)
+                .HasColumnName("Quantity")
+                .HasDefaultValue(0)
+                .IsRequired();
         });
+
 
         modelBuilder.Entity<GoodsToSupplier>(entity =>
         {

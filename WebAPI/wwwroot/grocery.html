@@ -1,0 +1,42 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>מכולת</title>
+    <link rel="stylesheet" href="grocery.css">
+</head>
+<body>
+    <h1>ניהול הזמנות מכולת</h1>
+
+    <section>
+        <h2>הזמנת מוצרים</h2>
+        <input type="text" id="company" placeholder="שם החברה">
+
+        <div id="productsContainer"></div>
+
+        <button onclick="addProduct()">הוסף מוצר</button>
+        <button onclick="sendOrder()">שלח הזמנה</button>
+    </section>
+
+
+    <section>
+        <h2>אישורי הזמנות</h2>
+        <input type="number" id="confirmOrderNum" placeholder="מספר הזמנה">
+        <button onclick="confirmReceipt()">אשר קבלה</button>
+    </section>
+
+    <section>
+        <h2>אישור סיום הזמנה</h2>
+        <input type="number" id="completeOrderNum" placeholder="מספר הזמנה">
+        <button onclick="completeOrder()">סיים הזמנה</button>
+    </section>
+
+    <section>
+        <h2>כל ההזמנות</h2>
+        <button onclick="getOrders()">הצג הזמנות</button>
+        <div id="ordersList"></div>
+    </section>
+
+    <script src="grocery.js"></script>
+</body>
+</html>

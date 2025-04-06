@@ -12,12 +12,12 @@ namespace BLL.Models
     {
        
 
-        [Required]
+        //[Required]
         public int SupplierId { get; set; }
         //[Required]
         //public virtual ICollection<GoodsToOrder> GoodsToOrders { get; set; } = new List<GoodsToOrder>();
         public string Status { get; set; } = "waiting";
-
+        //public Supplier supplier { get; set; } = null;
 
 
         public Order Convert()
@@ -25,8 +25,8 @@ namespace BLL.Models
             return new Order
             {
                 SupplierId = SupplierId,
-                Status = Status
-
+                Status = Status,
+                //Supplier = supplier
             };
         }
     }

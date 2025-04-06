@@ -1,0 +1,35 @@
+﻿<!DOCTYPE html>
+<html lang="he">
+<head>
+    <meta charset="UTF-8">
+    <title>כניסת ספק</title>
+    <link rel="stylesheet" href="supplierlogin.css">
+</head>
+<body>
+    <h1>כניסת ספק</h1>
+
+    <section>
+        <h2>הרשמה או כניסה</h2>
+
+        <!-- שדות הרשמה -->
+        <div id="registerForm">
+            <input type="text" id="companyName" placeholder="שם החברה">
+            <input type="text" id="phoneNumber" placeholder="טלפון החברה">
+            <input type="text" id="contactName" placeholder="שם איש קשר">
+            <button onclick="supplierRegister()">הרשמה</button>
+        </div>
+
+        <!-- שדות התחברות -->
+        <div id="loginForm" style="display: none;">
+            <input type="text" id="companyNameLogin" placeholder="שם החברה">
+            <input type="text" id="phoneNumberLogin" placeholder="טלפון החברה">
+            <button onclick="supplierLogin()">היכנס</button>
+        </div>
+
+        <!-- כפתורים להחלפה בין הרשמה והתחברות -->
+        <button onclick="toggleForm()">לעבור לכניסה / הרשמה</button>
+    </section>
+
+    <script src="supplierlogin.js"></script>
+</body>
+</html>

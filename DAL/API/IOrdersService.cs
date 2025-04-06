@@ -7,7 +7,8 @@ namespace DAL.API
         Task AddOrder(Order order);
         Task<List<Order>> GetAllOrders();
         Task<List<Order>> GetOrderBySupplierId(int SupplierId);
-        Task updateOrderStatus(string status, int id);
+        Task<bool> updateOrderStatus(string status, int id);
         Task<Order> GetOrderById(int id);
+         Task UpdateOrder(Order order);
     }
 }
