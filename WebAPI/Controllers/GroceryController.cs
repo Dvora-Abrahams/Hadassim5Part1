@@ -40,7 +40,7 @@ public class GroceryController : ControllerBase
     [HttpGet("GetAllOrders")]
     public async Task<IActionResult> GetOrders()
     {
-        var orders =ordersManagment.GetAllOrders().GetAwaiter().GetResult();
+        var orders = await ordersManagment.GetAllOrders();
         return Ok(orders);
     }
 
