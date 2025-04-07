@@ -14,3 +14,5 @@ C:\Users\User\Documents\dvora\project\GroceryProject\BLL\obj\Debug\net8.0\refint
 C:\Users\User\Documents\dvora\project\GroceryProject\BLL\obj\Debug\net8.0\BLL.pdb
 C:\Users\User\Documents\dvora\project\GroceryProject\BLL\obj\Debug\net8.0\ref\BLL.dll
 C:\Users\User\Documents\dvora\project\GroceryProject\BLL\obj\Debug\net8.0\BLL.sourcelink.json
+C:\Users\User\Documents\dvora\project\GroceryProject\BLL\bin\Debug\net8.0\database\groceryDatabase.mdf
+C:\Users\User\Documents\dvora\project\GroceryProject\BLL\bin\Debug\net8.0\database\groceryDatabase_log.ldf

@@ -176,3 +176,5 @@ C:\Users\User\Documents\dvora\project\GroceryProject\WebAPI\bin\Debug\net8.0\tr\
 C:\Users\User\Documents\dvora\project\GroceryProject\WebAPI\bin\Debug\net8.0\zh-Hans\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
 C:\Users\User\Documents\dvora\project\GroceryProject\WebAPI\bin\Debug\net8.0\zh-Hant\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
 C:\Users\User\Documents\dvora\project\GroceryProject\WebAPI\bin\Debug\net8.0\WebAPI.staticwebassets.runtime.json
+C:\Users\User\Documents\dvora\project\GroceryProject\WebAPI\bin\Debug\net8.0\database\groceryDatabase.mdf
+C:\Users\User\Documents\dvora\project\GroceryProject\WebAPI\bin\Debug\net8.0\database\groceryDatabase_log.ldf

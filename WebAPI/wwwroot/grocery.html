@@ -19,11 +19,7 @@
     </section>
 
 
-    <section>
-        <h2>אישורי הזמנות</h2>
-        <input type="number" id="confirmOrderNum" placeholder="מספר הזמנה">
-        <button onclick="confirmReceipt()">אשר קבלה</button>
-    </section>
+
 
     <section>
         <h2>אישור סיום הזמנה</h2>
@@ -35,6 +31,12 @@
         <h2>כל ההזמנות</h2>
         <button onclick="getOrders()">הצג הזמנות</button>
         <div id="ordersList"></div>
+    </section>
+
+    <section>
+        <h2>ההזמנות שממתינות לאישור</h2>
+        <button onclick="getWaitingOrders()">הצג הזמנות</button>
+        <div id="waitingOrdersList"></div>
     </section>
 
     <script src="grocery.js"></script>

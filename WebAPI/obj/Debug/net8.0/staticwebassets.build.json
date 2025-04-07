@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "VXw1whDCw+vhJt6ahfjEWPczJkUzYS+IpiFoB9FKhEE=",
+  "Hash": "I9rj2uEIXXU0LvzYKwk9xOPUMswu5OZfiaI4zt4ihA0=",
   "Source": "WebAPI",
   "BasePath": "_content/WebAPI",
   "Mode": "Default",
@@ -52,8 +52,8 @@
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
-      "Fingerprint": "ba94vpjwu4",
-      "Integrity": "A7srr0dCsV112YdVw20KbelfF0z2lIyxs76bWO1q+4c=",
+      "Fingerprint": "fhmfw68m2l",
+      "Integrity": "beh4lTC3XfjlN3VBv2qXdC70VR0OV41tsEQd8Rp22u8=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\grocery.html"
@@ -73,8 +73,8 @@
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
-      "Fingerprint": "73b4vp91ui",
-      "Integrity": "3ZusacUy8r2UhLXwQM39ZYBmWaI+Qi/y/UmtHhqdMQk=",
+      "Fingerprint": "6sa4wx399w",
+      "Integrity": "ajzTciRdaNqyrfX+f0AKXmSVB3ly9wKn+0S+iOxQpoc=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\grocery.js"
@@ -157,8 +157,8 @@
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
-      "Fingerprint": "h4rkzuh3vn",
-      "Integrity": "ry7rEg0tLmm0L6UvcaYQANJ1BvpsFGtn6cAG7+snmHA=",
+      "Fingerprint": "dzv47z6pwa",
+      "Integrity": "FxLOTRb7gMfwurmOpkd8m70ibfRohPUEwZfF6wTb164=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\supplier.html"
@@ -178,8 +178,8 @@
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
-      "Fingerprint": "gq1pkb4gq8",
-      "Integrity": "+ErOcLfF6G2ydFozHglrb704hvxdyEyqNIkATR+2REA=",
+      "Fingerprint": "o1hp8x2akx",
+      "Integrity": "dBEdvjFCmDfvgkbKZzkrqhPredEyVQTC2f1XcBjRNsg=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\supplier.js"
@@ -250,7 +250,7 @@
   ],
   "Endpoints": [
     {
-      "Route": "grocery.73b4vp91ui.js",
+      "Route": "grocery.6sa4wx399w.js",
       "AssetFile": "C:\\Users\\User\\Documents\\dvora\\project\\GroceryProject\\WebAPI\\wwwroot\\grocery.js",
       "Selectors": [],
       "ResponseHeaders": [
@@ -260,7 +260,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "4739"
+          "Value": "6235"
         },
         {
           "Name": "Content-Type",
@@ -268,11 +268,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"3ZusacUy8r2UhLXwQM39ZYBmWaI+Qi/y/UmtHhqdMQk=\""
+          "Value": "\"ajzTciRdaNqyrfX+f0AKXmSVB3ly9wKn+0S+iOxQpoc=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sun, 06 Apr 2025 16:08:20 GMT"
+          "Value": "Mon, 07 Apr 2025 18:45:10 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -282,7 +282,7 @@
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "73b4vp91ui"
+          "Value": "6sa4wx399w"
         },
         {
           "Name": "label",
@@ -290,7 +290,7 @@
         },
         {
           "Name": "integrity",
-          "Value": "sha256-3ZusacUy8r2UhLXwQM39ZYBmWaI+Qi/y/UmtHhqdMQk="
+          "Value": "sha256-ajzTciRdaNqyrfX+f0AKXmSVB3ly9wKn+0S+iOxQpoc="
         }
       ]
     },
@@ -340,51 +340,6 @@
       ]
     },
     {
-      "Route": "grocery.ba94vpjwu4.html",
-      "AssetFile": "C:\\Users\\User\\Documents\\dvora\\project\\GroceryProject\\WebAPI\\wwwroot\\grocery.html",
-      "Selectors": [],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "1258"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "text/html"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"A7srr0dCsV112YdVw20KbelfF0z2lIyxs76bWO1q+4c=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Sun, 06 Apr 2025 12:34:33 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "max-age=31536000, immutable"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "fingerprint",
-          "Value": "ba94vpjwu4"
-        },
-        {
-          "Name": "label",
-          "Value": "grocery.html"
-        },
-        {
-          "Name": "integrity",
-          "Value": "sha256-A7srr0dCsV112YdVw20KbelfF0z2lIyxs76bWO1q+4c="
-        }
-      ]
-    },
-    {
       "Route": "grocery.css",
       "AssetFile": "C:\\Users\\User\\Documents\\dvora\\project\\GroceryProject\\WebAPI\\wwwroot\\grocery.css",
       "Selectors": [],
@@ -422,6 +377,51 @@
       ]
     },
     {
+      "Route": "grocery.fhmfw68m2l.html",
+      "AssetFile": "C:\\Users\\User\\Documents\\dvora\\project\\GroceryProject\\WebAPI\\wwwroot\\grocery.html",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "1245"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/html"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"beh4lTC3XfjlN3VBv2qXdC70VR0OV41tsEQd8Rp22u8=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 07 Apr 2025 10:54:26 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "fhmfw68m2l"
+        },
+        {
+          "Name": "label",
+          "Value": "grocery.html"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-beh4lTC3XfjlN3VBv2qXdC70VR0OV41tsEQd8Rp22u8="
+        }
+      ]
+    },
+    {
       "Route": "grocery.html",
       "AssetFile": "C:\\Users\\User\\Documents\\dvora\\project\\GroceryProject\\WebAPI\\wwwroot\\grocery.html",
       "Selectors": [],
@@ -432,7 +432,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "1258"
+          "Value": "1245"
         },
         {
           "Name": "Content-Type",
@@ -440,11 +440,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"A7srr0dCsV112YdVw20KbelfF0z2lIyxs76bWO1q+4c=\""
+          "Value": "\"beh4lTC3XfjlN3VBv2qXdC70VR0OV41tsEQd8Rp22u8=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sun, 06 Apr 2025 12:34:33 GMT"
+          "Value": "Mon, 07 Apr 2025 10:54:26 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -454,7 +454,7 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-A7srr0dCsV112YdVw20KbelfF0z2lIyxs76bWO1q+4c="
+          "Value": "sha256-beh4lTC3XfjlN3VBv2qXdC70VR0OV41tsEQd8Rp22u8="
         }
       ]
     },
@@ -469,7 +469,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "4739"
+          "Value": "6235"
         },
         {
           "Name": "Content-Type",
@@ -477,11 +477,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"3ZusacUy8r2UhLXwQM39ZYBmWaI+Qi/y/UmtHhqdMQk=\""
+          "Value": "\"ajzTciRdaNqyrfX+f0AKXmSVB3ly9wKn+0S+iOxQpoc=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sun, 06 Apr 2025 16:08:20 GMT"
+          "Value": "Mon, 07 Apr 2025 18:45:10 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -491,7 +491,7 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-3ZusacUy8r2UhLXwQM39ZYBmWaI+Qi/y/UmtHhqdMQk="
+          "Value": "sha256-ajzTciRdaNqyrfX+f0AKXmSVB3ly9wKn+0S+iOxQpoc="
         }
       ]
     },
@@ -697,6 +697,51 @@
       ]
     },
     {
+      "Route": "supplier.dzv47z6pwa.html",
+      "AssetFile": "C:\\Users\\User\\Documents\\dvora\\project\\GroceryProject\\WebAPI\\wwwroot\\supplier.html",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "1221"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/html"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"FxLOTRb7gMfwurmOpkd8m70ibfRohPUEwZfF6wTb164=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 07 Apr 2025 16:37:16 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "dzv47z6pwa"
+        },
+        {
+          "Name": "label",
+          "Value": "supplier.html"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-FxLOTRb7gMfwurmOpkd8m70ibfRohPUEwZfF6wTb164="
+        }
+      ]
+    },
+    {
       "Route": "supplier.fm9c4kylsb.css",
       "AssetFile": "C:\\Users\\User\\Documents\\dvora\\project\\GroceryProject\\WebAPI\\wwwroot\\supplier.css",
       "Selectors": [],
@@ -742,96 +787,6 @@
       ]
     },
     {
-      "Route": "supplier.gq1pkb4gq8.js",
-      "AssetFile": "C:\\Users\\User\\Documents\\dvora\\project\\GroceryProject\\WebAPI\\wwwroot\\supplier.js",
-      "Selectors": [],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "6500"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "text/javascript"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"+ErOcLfF6G2ydFozHglrb704hvxdyEyqNIkATR+2REA=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Sun, 06 Apr 2025 15:33:19 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "max-age=31536000, immutable"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "fingerprint",
-          "Value": "gq1pkb4gq8"
-        },
-        {
-          "Name": "label",
-          "Value": "supplier.js"
-        },
-        {
-          "Name": "integrity",
-          "Value": "sha256-+ErOcLfF6G2ydFozHglrb704hvxdyEyqNIkATR+2REA="
-        }
-      ]
-    },
-    {
-      "Route": "supplier.h4rkzuh3vn.html",
-      "AssetFile": "C:\\Users\\User\\Documents\\dvora\\project\\GroceryProject\\WebAPI\\wwwroot\\supplier.html",
-      "Selectors": [],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "1131"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "text/html"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"ry7rEg0tLmm0L6UvcaYQANJ1BvpsFGtn6cAG7+snmHA=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Sun, 06 Apr 2025 15:37:56 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "max-age=31536000, immutable"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "fingerprint",
-          "Value": "h4rkzuh3vn"
-        },
-        {
-          "Name": "label",
-          "Value": "supplier.html"
-        },
-        {
-          "Name": "integrity",
-          "Value": "sha256-ry7rEg0tLmm0L6UvcaYQANJ1BvpsFGtn6cAG7+snmHA="
-        }
-      ]
-    },
-    {
       "Route": "supplier.html",
       "AssetFile": "C:\\Users\\User\\Documents\\dvora\\project\\GroceryProject\\WebAPI\\wwwroot\\supplier.html",
       "Selectors": [],
@@ -842,7 +797,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "1131"
+          "Value": "1221"
         },
         {
           "Name": "Content-Type",
@@ -850,11 +805,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"ry7rEg0tLmm0L6UvcaYQANJ1BvpsFGtn6cAG7+snmHA=\""
+          "Value": "\"FxLOTRb7gMfwurmOpkd8m70ibfRohPUEwZfF6wTb164=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sun, 06 Apr 2025 15:37:56 GMT"
+          "Value": "Mon, 07 Apr 2025 16:37:16 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -864,7 +819,7 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-ry7rEg0tLmm0L6UvcaYQANJ1BvpsFGtn6cAG7+snmHA="
+          "Value": "sha256-FxLOTRb7gMfwurmOpkd8m70ibfRohPUEwZfF6wTb164="
         }
       ]
     },
@@ -879,7 +834,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "6500"
+          "Value": "8117"
         },
         {
           "Name": "Content-Type",
@@ -887,11 +842,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"+ErOcLfF6G2ydFozHglrb704hvxdyEyqNIkATR+2REA=\""
+          "Value": "\"dBEdvjFCmDfvgkbKZzkrqhPredEyVQTC2f1XcBjRNsg=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sun, 06 Apr 2025 15:33:19 GMT"
+          "Value": "Mon, 07 Apr 2025 18:45:10 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -901,7 +856,52 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-+ErOcLfF6G2ydFozHglrb704hvxdyEyqNIkATR+2REA="
+          "Value": "sha256-dBEdvjFCmDfvgkbKZzkrqhPredEyVQTC2f1XcBjRNsg="
+        }
+      ]
+    },
+    {
+      "Route": "supplier.o1hp8x2akx.js",
+      "AssetFile": "C:\\Users\\User\\Documents\\dvora\\project\\GroceryProject\\WebAPI\\wwwroot\\supplier.js",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "8117"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"dBEdvjFCmDfvgkbKZzkrqhPredEyVQTC2f1XcBjRNsg=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 07 Apr 2025 18:45:10 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "o1hp8x2akx"
+        },
+        {
+          "Name": "label",
+          "Value": "supplier.js"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-dBEdvjFCmDfvgkbKZzkrqhPredEyVQTC2f1XcBjRNsg="
         }
       ]
     },

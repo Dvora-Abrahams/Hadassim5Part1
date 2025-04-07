@@ -62,7 +62,10 @@ namespace DAL.Migrations
                         .HasColumnType("int");
 
                     b.Property<int>("Quantity")
-                        .HasColumnType("int");
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasDefaultValue(0)
+                        .HasColumnName("Quantity");
 
                     b.HasKey("Id")
                         .HasName("PK__GoodsToO__3214EC07DBF99BF6");
@@ -105,6 +108,9 @@ namespace DAL.Migrations
                         .HasColumnType("int");
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<double>("FinalPrice")
+                        .HasColumnType("float");
 
                     b.Property<int>("OrderQuantityNum")
                         .HasColumnType("int");

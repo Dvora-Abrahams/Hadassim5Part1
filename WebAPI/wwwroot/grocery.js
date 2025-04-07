@@ -5,9 +5,9 @@ document.addEventListener("DOMContentLoaded", () => {
     addBtn.textContent = "הוסף שורה להזמנה";
     addBtn.onclick = addProduct;
     document.querySelector("section").appendChild(addBtn);
+    //document.getElementById("addProductBtn").addEventListener("click", addProduct);
+    //document.getElementById("sendOrderBtn").addEventListener("click", sendOrder);
 
-    document.getElementById("addProductBtn").addEventListener("click", addProduct);
-    document.getElementById("sendOrderBtn").addEventListener("click", sendOrder);
 });
 
 function addProduct() {
@@ -93,7 +93,13 @@ async function getOrders() {
     const response = await fetch(`${baseUrl}/GetAllOrders`);
     const orders = await response.json();
 
+  
     const ordersList = document.getElementById("ordersList");
+
+    if (ordersList.innerHTML !== "") {
+        ordersList.innerHTML = "";
+        return;
+    }
     ordersList.innerHTML = "";
 
     if (orders.length === 0) {
@@ -113,6 +119,7 @@ async function getOrders() {
             <h3>הזמנה #${order.id}</h3>
             <p><strong>סטטוס:</strong> ${order.status}</p>
             <p><strong>ספק:</strong> ${order.supplierId ?? "לא ידוע"}</p>
+            <p><strong>מחיר סופי::</strong> ${order.finalPrice}</p>
             <p><strong>מוצרים:</strong></p>
             ${goodsHtml}
         `;
@@ -120,12 +127,48 @@ async function getOrders() {
         ordersList.appendChild(orderDiv);
     });
 }
+async function getWaitingOrders() {
+    const response = await fetch(`${baseUrl}/GetAllWaitingOrders`);
+    const orders = await response.json();
+  
 
-async function confirmReceipt() {
-    const orderNum = document.getElementById("confirmOrderNum").value;
-    await fetch(`${baseUrl}/ConfirmationReceipOrder?orderNum=${orderNum}`);
-    alert("קבלה אושרה");
+    const ordersList = document.getElementById("waitingOrdersList");
+    if (ordersList.innerHTML !== "") {
+        ordersList.innerHTML = "";
+        return;
+    }
+    ordersList.innerHTML = "";
+
+    if (orders.length === 0) {
+        ordersList.innerHTML = "<p>אין הזמנות להצגה.</p>";
+        return;
+    }
+
+    orders.forEach(order => {
+        const orderDiv = document.createElement("div");
+        orderDiv.className = "order";
+
+        const goodsHtml = order.goods.length > 0
+            ? `<ul>${order.goods.map(g => `<li>${g.productName} - ₪${g.price.toFixed(2)}</li>`).join("")}</ul>`
+            : "<p>אין מוצרים בהזמנה זו.</p>";
+
+        orderDiv.innerHTML = `
+            <h3>הזמנה #${order.id}</h3>
+            <p><strong>סטטוס:</strong> ${order.status}</p>
+            <p><strong>ספק:</strong> ${order.supplierId ?? "לא ידוע"}</p>
+            <p><strong>מחיר סופי::</strong> ${order.finalPrice}</p>
+            <p><strong>מוצרים:</strong></p>
+            ${goodsHtml}
+        `;
+
+        ordersList.appendChild(orderDiv);
+    });
 }
+//async function confirmReceipt() {
+//    const orderNum = document.getElementById("confirmOrderNum").value;
+//    await fetch(`${baseUrl}/ConfirmationReceipOrder?orderNum=${orderNum}`);
+//    alert("קבלה אושרה");
+//}
 
 async function completeOrder() {
     const orderNum = document.getElementById("completeOrderNum").value;

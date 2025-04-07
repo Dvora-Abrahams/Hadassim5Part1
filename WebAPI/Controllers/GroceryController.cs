@@ -43,6 +43,12 @@ public class GroceryController : ControllerBase
         var orders = await ordersManagment.GetAllOrders();
         return Ok(orders);
     }
+    [HttpGet("GetAllWaitingOrders")]
+    public async Task<IActionResult> GetAllWaitingOrders()
+    {
+        var orders = await ordersManagment.GetAllWaitingOrders();
+        return Ok(orders);
+    }
 
     [HttpGet("ConfirmationReceipOrder")]
     public async Task ConfirmationReceipOrder(int orderNum)

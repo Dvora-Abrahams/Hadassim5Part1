@@ -26,6 +26,13 @@ namespace DAL.Services
         {
             return await _context.Orders.ToListAsync();
         }
+        //public async Task<List<Order>> GetAllWaitingOrders()
+        //{
+        //    var orders =await _context.Orders.ToListAsync();
+        //    List < Order >= orders;
+        //    return orders;
+        //    return orders.Select(o => o.Status == "waiting");
+        //}
         public async Task<Order> GetOrderById(int id)
         {
             var order = await _context.Orders.FirstOrDefaultAsync(o => o.Id == id);
@@ -38,6 +45,17 @@ namespace DAL.Services
         public async Task<List<Order>> GetOrderBySupplierId(int SupplierId)
         {
             List<Order> order = await _context.Orders.Where(o => o.SupplierId == SupplierId && o.Status != "completed").ToListAsync();
+
+            if (order == null)
+            {
+                throw new Exception("Order not found");
+            }
+
+            return order;
+        }
+        public async Task<List<Order>> GetAllOrderBySupplierId(int SupplierId)
+        {
+            List<Order> order = await _context.Orders.ToListAsync();
 
             if (order == null)
             {

@@ -1,20 +1,29 @@
 ﻿const baseUrl = "/Suppliers";
 
 document.addEventListener("DOMContentLoaded", () => {
+    const section = document.querySelector("section");
+
+    // שדה כמות כללית
+    const quantityInput = document.createElement("input");
+    quantityInput.type = "number";
+    quantityInput.placeholder = "כמות כללית";
+    quantityInput.id = "totalQuantity";
+    section.appendChild(quantityInput);
+
+
     const addBtn = document.createElement("button");
     addBtn.textContent = "הוסף שורה למוצר";
     addBtn.onclick = addProduct;
-    document.querySelector("section").appendChild(addBtn);
+    section.appendChild(addBtn);
+
+    const submitBtn = document.createElement("button");
+    submitBtn.textContent = "שלח הזמנה";
+    submitBtn.onclick = submitProducts ;
+    section.appendChild(submitBtn);
 });
 
 function addProduct() {
     const container = document.getElementById("goodsContainer");
-
-    // שדה כמות עבור כל המוצרים
-    const quantityInput = document.createElement("input");
-    quantityInput.type = "number";
-    quantityInput.placeholder = "כמות כללית";
-    quantityInput.classList.add("product-quantity");
 
     const productDiv = document.createElement("div");
     productDiv.classList.add("product-line");
@@ -32,7 +41,6 @@ function addProduct() {
     removeButton.innerText = "🗑️";
     removeButton.onclick = () => productDiv.remove();
 
-    productDiv.appendChild(quantityInput);
     productDiv.appendChild(nameInput);
     productDiv.appendChild(priceInput);
     productDiv.appendChild(removeButton);
@@ -41,12 +49,11 @@ function addProduct() {
 }
 
 async function submitProducts() {
-    const goods = {}; // זה יקבל את המוצרים כ־Dictionary
+    const goods = {};
     const productNames = document.querySelectorAll(".product-name");
     const productPrices = document.querySelectorAll(".product-price");
-    const quantity = document.querySelector(".product-quantity").value;  // הכמות הכללית שתוכנס
+    const quantity = document.getElementById("totalQuantity").value;
 
-    // בדיקה אם כמות תקינה
     if (isNaN(quantity) || quantity <= 0) {
         alert("נא להזין כמות תקינה.");
         return;
@@ -61,28 +68,26 @@ async function submitProducts() {
             return;
         }
 
-        // כאן אנחנו מאחסנים את שם המוצר במחיר שלו, מה שהופך את זה ל- Dictionary
-        goods[name] = {
-            price: price,
-            quantity: quantity  // תוספת כמות כללית לכל מוצר
-        };
+        goods[name] = price;
+             
+        
     }
 
     // הצגת "LOADING..."
     document.getElementById("loading").style.display = "block";
+
     const company = localStorage.getItem("supplierCompany");
     if (!company) {
         alert("לא ניתן לאתר את שם החברה. אנא התחבר שוב.");
         return;
     }
 
-    // כאן אנחנו שולחים את המידע בצורה שמתאימה לצד השרת
     const response = await fetch(`${baseUrl}/AddGoodsToSupplier?company=${encodeURIComponent(company)}&n=${quantity}`, {
         method: "POST",
         headers: {
             "Content-Type": "application/json"
         },
-        body: JSON.stringify(goods) // שליחה כ־Dictionary
+        body: JSON.stringify(goods)
     });
 
     // הסתרת "LOADING..."
@@ -97,6 +102,7 @@ async function submitProducts() {
 
 
 async function getOrders() {
+   
     const company = localStorage.getItem("supplierCompany");
     if (!company) {
         alert("לא ניתן לאתר את שם החברה. אנא התחבר שוב.");
@@ -108,10 +114,14 @@ async function getOrders() {
         alert("שגיאה בקבלת ההזמנות מהשרת.");
         return;
     }
-
+   
     const orders = await response.json();
 
     const ordersList = document.getElementById("ordersList");
+    if (ordersList.innerHTML !== "") {
+        ordersList.innerHTML = "";
+        return;
+    }
     ordersList.innerHTML = "";
 
     if (!orders || orders.length === 0) {
@@ -131,13 +141,65 @@ async function getOrders() {
             <h3>הזמנה #${order.id}</h3>
             <p><strong>סטטוס:</strong> ${order.status}</p>
             <p><strong>ספק:</strong> ${order.supplierId ?? "לא ידוע"}</p>
+            <p><strong>מחיר סופי::</strong> ${order.finalPrice}</p>
             <p><strong>מוצרים:</strong></p>
             ${goodsHtml}
         `;
 
         ordersList.appendChild(orderDiv);
     });
-     }
+}
+
+async function getCompletedOrder() {
+    const company = localStorage.getItem("supplierCompany");
+    if (!company) {
+        alert("לא ניתן לאתר את שם החברה. אנא התחבר שוב.");
+        return;
+    }
+
+    const response = await fetch(`${baseUrl}/GetCompletedOrderByCompany?company=${encodeURIComponent(company)}`);
+    if (!response.ok) {
+        alert("שגיאה בקבלת ההזמנות מהשרת.");
+        return;
+    }
+
+    const orders = await response.json();
+
+    const ordersList = document.getElementById("completedOrdersList");
+    if (ordersList.innerHTML !== "") {
+        ordersList.innerHTML = "";
+        return;
+    }
+    ordersList.innerHTML = "";
+
+    if (!orders || orders.length === 0) {
+        ordersList.innerHTML = "<p>אין הזמנות להצגה.</p>";
+        return;
+    }
+
+    orders.forEach(order => {
+        const orderDiv = document.createElement("div");
+        orderDiv.className = "order";
+
+        const goodsHtml = order.goods.length > 0
+            ? `<ul>${order.goods.map(g => `<li>${g.productName} - ₪${g.price.toFixed(2)}</li>`).join("")} }</ul>`
+            : "<p>אין מוצרים בהזמנה זו.</p>";
+
+        orderDiv.innerHTML = `
+            <h3>הזמנה #${order.id}</h3>
+            <p><strong>הודעה מבעל המכולת: </strong> הזמנה מספר ${order.id} הושלמה בהצלחה</p>
+            <p><strong>סטטוס:</strong> ${order.status}</p>
+            <p><strong>מחיר סופי::</strong> ${order.finalPrice}</p>
+            <p><strong>מוצרים:</strong></p>
+            ${goodsHtml}
+        `;
+
+        ordersList.appendChild(orderDiv);
+    });
+}
+
+
+
 async function confirmReceipt() {
     const orderId = document.getElementById("orderIdInput").value;
 

@@ -14,6 +14,8 @@ public partial class Order
     public int OrderQuantityNum { get; set; } = 0;
     [NotMapped]
     public virtual List<Good> goods { get; set; } = new List<Good>();
+  
+    public double FinalPrice { get; set; } = 0;
     public virtual ICollection<GoodsToOrder> GoodsToOrders { get; set; } = new List<GoodsToOrder>();
 
     public virtual Supplier Supplier { get; set; } = null!;

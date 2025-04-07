@@ -42,6 +42,13 @@ namespace WebAPI.Controllers
             var orders = await ordersManagment.GetOrderByCompanyName(company);
             return Ok(orders);
         }
+        [HttpGet("GetCompletedOrderByCompany")]
+        public async Task<IActionResult> GetCompletedOrderByCompany(string company)
+        {
+            var orders = await ordersManagment.GetCompletedOrderByCompanyName(company);
+            return Ok(orders);
+        }
+
 
         [HttpPut("ConfirmationReceipOrder")]
         public async Task<bool> ConfirmationReceipOrder(int orderId)

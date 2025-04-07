@@ -36,6 +36,15 @@ namespace DAL.Services
             }
             return good;
         }
+        public async Task<Good> GetGoodByNameAndPrice(string name , double price)
+        {
+            var good = await _context.Goods.FirstOrDefaultAsync(g => g.ProductName == name && g.Price == price);
+            if (good == null)
+            {
+                return null;
+            }
+            return good;
+        }
         //public void UpdateGood(Good good)
         //{
         //    var existingGood = _context.Goods.FirstOrDefault(g => g.Id == good.Id);

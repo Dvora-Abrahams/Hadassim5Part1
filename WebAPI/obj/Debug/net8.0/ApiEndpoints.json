@@ -33,6 +33,16 @@
   },
   {
     "ContainingType": "WebAPI.Controllers.GroceryController",
+    "Method": "GetAllWaitingOrders",
+    "RelativePath": "Grocery/GetAllWaitingOrders",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "WebAPI.Controllers.GroceryController",
     "Method": "OrdeCompletionConfirmation",
     "RelativePath": "Grocery/OrdeCompletionConfirmation",
     "HttpMethod": "POST",
@@ -173,6 +183,22 @@
         "StatusCode": 200
       }
     ]
+  },
+  {
+    "ContainingType": "WebAPI.Controllers.SuppliersController",
+    "Method": "GetCompletedOrderByCompany",
+    "RelativePath": "Suppliers/GetCompletedOrderByCompany",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "company",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
   },
   {
     "ContainingType": "WebAPI.Controllers.SuppliersController",
